@@ -6,10 +6,9 @@ import Player from './Player'
 export default class Game implements IGame {
   private _context: CanvasRenderingContext2D
   private _scenes: Scene[]
-  private _sprites?: Sprite[]
-  options: Options
+  options?: Options
 
-  constructor(el: HTMLCanvasElement, options: Options) {
+  constructor(el: HTMLCanvasElement, options?: Options) {
     this._context = el.getContext('2d') as CanvasRenderingContext2D
     this._scenes = []
     this.options = options
@@ -18,14 +17,22 @@ export default class Game implements IGame {
   public get context(): CanvasRenderingContext2D {
     return this._context
   }
-
   public set context(value: CanvasRenderingContext2D) {
     this._context = value
   }
 
-  public addScene(player: Player, background: any, sprites: Sprite[]): void {
+  public addScene(player: Player, background: any, sprites: Sprite[]): Scene {
     const scene = new Scene(player, background, sprites)
-    this._scenes.push(scene)
+    return scene
+    // this._scenes.push(scene)
+  }
+
+  public get scenes(): Scene[] {
+    return this._scenes
+  }
+
+  public set scenes(value: Scene[]) {
+    this._scenes = value
   }
 
   public run(): void {

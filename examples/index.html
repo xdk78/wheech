@@ -1,0 +1,29 @@
+<!<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>basic</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../dist/wheech.umd.js"></script>
+</head>
+
+<body>
+  <canvas id="game" width="480" height="320"></canvas>
+  <script>
+    // WIP THIS IS MOCK CURRENTLY
+    const w = new wheech.Wheech()
+
+    const game = w.createGame('game')
+    const player = new wheech.Player('John')
+    const ctx = game.context
+    const rectangle = new wheech.Sprite(ctx).rect(0, 0, 50, 50, { fillStyle: 'blue' })
+    const rectangle2 = new wheech.Sprite(ctx).rect(55, 55, 50, 50, { fillStyle: 'red' })
+    // game.addScene(player, 'blue', [rectangle, rectangle2])
+    game.run()
+
+  </script>
+</body>
+
+</html>

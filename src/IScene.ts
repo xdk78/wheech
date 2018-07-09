@@ -1,6 +1,6 @@
 import Player from './Player'
 
 export default interface IScene {
-  player: Player
+  player?: Player
   background?: any
 }

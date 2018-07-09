@@ -4,15 +4,12 @@ import Player from './Player'
 import Sprite from './Sprite'
 
 export default interface IGame {
-  options: Options
+  options?: Options
   scenes?: Scene[]
   physics?: Physics
   sprites?: Sprite[]
   run(): void
-  addScene(player: Player, background: any, sprites: Sprite[]): void
+  addScene(player: Player, background: any, sprites: Sprite[]): Scene
 }
 
-export interface Options {
-  width: number
-  height: number
-}
+export interface Options {}
