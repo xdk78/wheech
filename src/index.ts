@@ -4,5 +4,6 @@ import Sprite from './Sprite'
 import KeyCodes from './KeyCodes'
 import InputSubject from './InputSubject'
 import Physics from './Physics'
+import RectangleShape from './RectangleShape'
 
-export { Wheech, Player, Sprite, Physics, KeyCodes, InputSubject }
+export { Wheech, Player, Sprite, Physics, KeyCodes, InputSubject, RectangleShape }
