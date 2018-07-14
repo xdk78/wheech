@@ -17,6 +17,12 @@
 
     const game = w.createGame('game')
     const player = new wheech.Player('John')
+    const subjectus = new wheech.InputSubject(document)
+    subjectus.keydownSubject.subscribe((event) => {
+      if (event == wheech.KeyCodes.ARROW_UP) {
+        console.log("ARROW UPED")
+      }
+    })
     const ctx = game.context
     const rectangle = new wheech.Sprite(ctx).rect(0, 0, 50, 50, { fillStyle: 'blue' })
     const rectangle2 = new wheech.Sprite(ctx).rect(55, 55, 50, 50, { fillStyle: 'red' })
