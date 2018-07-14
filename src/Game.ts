@@ -23,8 +23,8 @@ export default class Game implements IGame {
 
   public addScene(player: Player, background: any, sprites: Sprite[]): Scene {
     const scene = new Scene(player, background, sprites)
+    this._scenes.push(scene)
     return scene
-    // this._scenes.push(scene)
   }
 
   public get scenes(): Scene[] {
@@ -33,6 +33,10 @@ export default class Game implements IGame {
 
   public set scenes(value: Scene[]) {
     this._scenes = value
+  }
+
+  public update(scenes): void {
+    requestAnimationFrame(() => this.update(scenes))
   }
 
   public run(): void {

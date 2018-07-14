@@ -17,4 +17,8 @@ export default class Sprite implements ISprite {
     ctx.fill()
     ctx.closePath()
   }
+
+  renderer(): void {
+    throw new Error('Method not implemented.')
+  }
 }
