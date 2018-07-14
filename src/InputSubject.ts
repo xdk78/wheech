@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs'
-import { KeyCodes } from '.'
+import KeyCodes from './KeyCodes'
 export default class InputSubject {
   keydownSubject: Subject<KeyCodes> = new Subject()
   constructor(document: Document) {
