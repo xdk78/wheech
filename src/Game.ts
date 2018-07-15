@@ -9,8 +9,10 @@ export default class Game implements IGame {
   options: Options
 
   constructor(el: HTMLCanvasElement, options: Options) {
-    this._context = el.getContext('2d') as CanvasRenderingContext2D
     this.options = options
+    el.width = this.options.width
+    el.height = this.options.height
+    this._context = el.getContext('2d') as CanvasRenderingContext2D
   }
 
   public get context(): CanvasRenderingContext2D {
