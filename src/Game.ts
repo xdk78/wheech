@@ -28,7 +28,7 @@ export default class Game implements IGame {
     return this._currentScene
   }
 
-  public update(): void {
+  private update(): void {
     if (this._currentScene) {
       this._currentScene.draw()
     }
@@ -36,7 +36,7 @@ export default class Game implements IGame {
   }
 
   public run(): void {
-    console.log('Game is running')
     this.update()
+    console.log('Game is running')
   }
 }

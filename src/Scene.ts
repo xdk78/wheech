@@ -10,15 +10,9 @@ export default class Scene implements IScene {
   constructor(player: Player, background: any, sprites: Sprite[]) {
     this.background = background
     this.sprites = sprites
-    this.sprites.forEach(s => {
-      console.log(s)
-    })
   }
-  // private _init(): void {
 
-  // }
-
-  draw() {
+  public draw(): void {
     this.sprites.forEach(element => {
       element.render()
     })

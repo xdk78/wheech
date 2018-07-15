@@ -3,14 +3,12 @@ import IShape from './IShape'
 import Vector2d from './Vector2d'
 
 export default class Sprite implements ISprite {
-  context: CanvasRenderingContext2D
-  path?: any
-  _shape: IShape
-  _position: Vector2d
+  private _path?: any
+  private _shape: IShape
+  private _position: Vector2d
 
-  constructor(context: CanvasRenderingContext2D, path?: any) {
-    this.context = context
-    this.path = path
+  constructor(path?: any) {
+    this._path = path
   }
 
   public setPosition(pos: Vector2d) {
@@ -21,7 +19,7 @@ export default class Sprite implements ISprite {
     this._shape = shape
   }
 
-  render(): void {
+  public render(): void {
     this._shape.draw(this._position, 0)
   }
 }
