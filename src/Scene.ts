@@ -12,9 +12,9 @@ export default class Scene implements IScene {
     this.sprites = sprites
   }
 
-  public draw(): void {
+  public draw(canvasWidth: number, canvasHeight: number): void {
     this.sprites.forEach(element => {
-      element.render()
+      element.render(canvasWidth, canvasHeight)
     })
   }
 }

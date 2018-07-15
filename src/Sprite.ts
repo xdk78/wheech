@@ -19,7 +19,7 @@ export default class Sprite implements ISprite {
     this._shape = shape
   }
 
-  public render(): void {
-    this._shape.draw(this._position, 0)
+  public render(canvasWidth: number, canvasHeight: number): void {
+    this._shape.draw(canvasWidth, canvasHeight, this._position, 0)
   }
 }

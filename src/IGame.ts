@@ -4,10 +4,13 @@ import Player from './Player'
 import Sprite from './Sprite'
 
 export default interface IGame {
-  options?: Options
+  options: Options
   physics?: Physics
   run(): void
   setCurrentScene(scene: Scene)
 }
 
-export interface Options {}
+export interface Options {
+  width: number
+  height: number
+}

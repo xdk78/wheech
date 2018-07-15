@@ -6,9 +6,9 @@ import Player from './Player'
 export default class Game implements IGame {
   private _context: CanvasRenderingContext2D
   private _currentScene: Scene
-  options?: Options
+  options: Options
 
-  constructor(el: HTMLCanvasElement, options?: Options) {
+  constructor(el: HTMLCanvasElement, options: Options) {
     this._context = el.getContext('2d') as CanvasRenderingContext2D
     this.options = options
   }
@@ -30,7 +30,7 @@ export default class Game implements IGame {
 
   private update(): void {
     if (this._currentScene) {
-      this._currentScene.draw()
+      this._currentScene.draw(this.options.width, this.options.height)
     }
     requestAnimationFrame(() => this.update())
   }
