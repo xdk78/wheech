@@ -21,7 +21,7 @@ export default class Sprite implements ISprite {
     this._shape = shape
   }
 
-  renderer(): void {
+  render(): void {
     this._shape.draw(this._position, 0)
   }
 }

@@ -1,4 +1,7 @@
+import IShape from './IShape'
+
 export default interface ISprite {
   path?: any
-  renderer(): void
+  render(): void
+  setShape(shape: IShape)
 }

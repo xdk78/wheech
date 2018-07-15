@@ -5,11 +5,9 @@ import Sprite from './Sprite'
 
 export default interface IGame {
   options?: Options
-  scenes?: Scene[]
   physics?: Physics
-  sprites?: Sprite[]
   run(): void
-  addScene(player: Player, background: any, sprites: Sprite[]): Scene
+  setCurrentScene(scene: Scene)
 }
 
 export interface Options {}
