@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <canvas id="game" width="480" height="320"></canvas>
+  <canvas id="game" width="800" height="600"></canvas>
   <script>
     // WIP THIS IS MOCK CURRENTLY
     const w = new wheech.Wheech()
@@ -18,17 +18,41 @@
     const game = w.createGame('game')
     const player = new wheech.Player('John')
     const subjectus = new wheech.InputSubject(document)
-    subjectus.keydownSubject.subscribe((event) => {
-      if (event == wheech.KeyCodes.ARROW_UP) {
-        console.log("ARROW UPED")
-      }
-    })
     const ctx = game.context
-    const rectShape = new wheech.RectangleShape(50, 50, ctx, { fillStyle: 'red' })
+
+    const rectShape = new wheech.RectangleShape(50, 50, ctx, { fillStyle: 'palevioletred' })
     const rect = new wheech.Sprite()
     rect.setPosition({ x: 55, y: 55 })
     rect.setShape(rectShape)
-    const scene = new wheech.Scene(player, 'blue', [rect])
+    
+    let rect2x = 5
+    let rect2y = 5
+    const rectShape2 = new wheech.RectangleShape(50, 50, ctx, { fillStyle: 'purple' })
+    const rect2 = new wheech.Sprite()
+    rect2.setPosition({ x: 0, y: 0 })
+    subjectus.keydownSubject.subscribe((event) => {
+      if (event == wheech.KeyCodes.ARROW_RIGHT) {
+        console.log('ARROW_RIGHT')
+        rect2x += 10
+      }
+      else if (event == wheech.KeyCodes.ARROW_LEFT) {
+        console.log('ARROW_LEFT')
+        rect2x -= 10
+      }
+      else if (event == wheech.KeyCodes.ARROW_UP) {
+        console.log('ARROW_UP')
+        rect2y -= 10
+      }
+      else if (event == wheech.KeyCodes.ARROW_DOWN) {
+        console.log('ARROW_DOWN')
+        rect2y += 10
+      }
+      rect2.setPosition({ x: rect2x, y: rect2y })
+
+    })
+    rect2.setShape(rectShape2)
+
+    const scene = new wheech.Scene(player, 'blue', [rect, rect2])
     game.setCurrentScene(scene)
     game.run()
 
