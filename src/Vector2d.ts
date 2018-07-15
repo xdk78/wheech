@@ -6,19 +6,19 @@ export default class Vector2d {
     this._y = y
   }
 
-  public get getX(): number {
+  public get x(): number {
     return this._x
   }
 
-  public get getY(): number {
+  public set x(value: number) {
+    this._x = value
+  }
+
+  public get y(): number {
     return this._y
   }
 
-  public set setY(y: number) {
-    this._y = y
-  }
-
-  public set setX(x: number) {
-    this._x = x
+  public set y(value: number) {
+    this._y = value
   }
 }

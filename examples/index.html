@@ -25,7 +25,9 @@
     })
     const ctx = game.context
     const rectShape = new wheech.RectangleShape(50, 50, ctx, { fillStyle: 'red' })
-    const rect = new wheech.Sprite().setPosition({ x: 55, y: 55 }).setShape(rectShape)
+    const rect = new wheech.Sprite()
+    rect.setPosition({ x: 55, y: 55 })
+    rect.setShape(rectShape)
     const scene = new wheech.Scene(player, 'blue', [rect])
     game.setCurrentScene(scene)
     game.run()

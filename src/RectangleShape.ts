@@ -1,5 +1,6 @@
 import IShape from './IShape'
 import Vector2d from './Vector2d'
+
 export default class RectangleShape implements IShape {
   private _width: number
   private _style?: any
@@ -17,7 +18,7 @@ export default class RectangleShape implements IShape {
     const ctx = this._context
     ctx.beginPath()
     // @ts-ignore
-    ctx.rect(vector.getX(), vector.getY(), this._width, this._height)
+    ctx.rect(vector.x, vector.y, this._width, this._height)
     ctx.fillStyle = this._style.fillStyle
     ctx.fill()
     ctx.closePath()
