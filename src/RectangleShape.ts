@@ -14,7 +14,6 @@ export default class RectangleShape implements IShape {
 
   public draw(context: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number, vector: Vector2d, rotation: number): void {
     const ctx = context
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight)
     ctx.beginPath()
     // @ts-ignore
     ctx.rect(vector.x, vector.y, this._width, this._height)
