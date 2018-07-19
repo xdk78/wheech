@@ -1,11 +1,13 @@
 import IScene from './IScene'
 import Sprite from './Sprite'
+import IPhysics from './IPhysics'
 
 export default class Scene implements IScene {
   background: any
   sprites: Sprite[]
+  physics: IPhysics
 
-  constructor(background: any, sprites: Sprite[]) {
+  constructor(background: any, physics: IPhysics, sprites: Sprite[]) {
     this.background = background
     this.sprites = sprites
   }
@@ -15,5 +17,7 @@ export default class Scene implements IScene {
     this.sprites.forEach(element => {
       element.render(context, canvasWidth, canvasHeight)
     })
+
+    this.physics.update()
   }
 }

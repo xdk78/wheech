@@ -107,6 +107,7 @@
     "validate-commit-msg": "^2.14.0"
   },
   "dependencies": {
+    "@types/matter-js": "^0.10.1",
     "matterjs": "^0.1.3",
     "rxjs": "^6.2.2"
   }

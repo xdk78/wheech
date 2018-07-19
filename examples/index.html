@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="../dist/wheech.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.js"></script>
 </head>
 
 <body>
@@ -20,11 +21,13 @@
 
     const rectShape = new wheech.RectangleShape(50, 50, { fillStyle: 'palevioletred' })
     const rect = new wheech.Sprite()
+    rect.setBody(Matter.Bodies.rectangle(55, 55, 50, 50))
     rect.setPosition({ x: 55, y: 55 })
     rect.setShape(rectShape)
 
     let rect2x = 5
     let rect2y = 5
+    const physics = new wheech.Physics()
     const rectShape2 = new wheech.RectangleShape(50, 50, { fillStyle: 'purple' })
     const rect2 = new wheech.Sprite()
     rect2.setPosition({ x: rect2x, y: rect2x })
@@ -50,7 +53,7 @@
     })
     rect2.setShape(rectShape2)
 
-    const scene = new wheech.Scene('blue', [rect, rect2])
+    const scene = new wheech.Scene('blue', physics, [rect, rect2])
     game.setCurrentScene(scene)
     game.run()
 

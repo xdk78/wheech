@@ -1,1 +1,3 @@
-export default interface IPhysics {}
+export default interface IPhysics {
+  update()
+}
