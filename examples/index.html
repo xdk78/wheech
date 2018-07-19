@@ -14,6 +14,7 @@
   <script>
     // WIP THIS IS MOCK CURRENTLY
     const w = new wheech.Wheech()
+    wheech.Matter.Event
 
     const game = w.createGame('game', { width: 800, height: 600 })
     const subjectus = new wheech.InputSubject(document)
@@ -21,6 +22,7 @@
     const rectShape = new wheech.RectangleShape(50, 50, { fillStyle: 'palevioletred' })
     const rect = new wheech.Sprite()
     const bbbb = wheech.Matter.Bodies.rectangle(55, 55, 50, 50)
+    const ground = wheech.Matter.Bodies.rectangle(55, 200, 50, 50, { isStatic: true })
     rect.setBody(bbbb)
     rect.setPosition({ x: 55, y: 55 })
     rect.setShape(rectShape)
@@ -28,7 +30,11 @@
     let rect2x = 5
     let rect2y = 5
     const physics = new wheech.Physics({})
+    wheech.Matter.Events.on(physics.engine, 'collisionStart', function(event) {
+     console.log(event)
+});
     physics.addBody(bbbb)
+    physics.addBody(ground)
     const rectShape2 = new wheech.RectangleShape(50, 50, { fillStyle: 'purple' })
     const rect2 = new wheech.Sprite()
     rect2.setPosition({ x: rect2x, y: rect2x })
