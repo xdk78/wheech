@@ -7,5 +7,6 @@ import RectangleShape from './RectangleShape'
 import Scene from './Scene'
 import Vector2d from './Vector2d'
 import Game from './Game'
+import Matter from 'matter-js'
 
-export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, Scene, Vector2d, Game }
+export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, Scene, Vector2d, Game, Matter }
