@@ -1,3 +1,3 @@
 export default interface IPhysics {
-  update()
+  update(): void
 }
