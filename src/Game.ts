@@ -1,7 +1,5 @@
 import IGame, { Options } from './IGame'
 import Scene from './Scene'
-import Sprite from './Sprite'
-import Player from './Player'
 
 export default class Game implements IGame {
   private _context: CanvasRenderingContext2D
@@ -32,7 +30,7 @@ export default class Game implements IGame {
 
   private update(): void {
     if (this._currentScene) {
-      this._currentScene.draw(this.options.width, this.options.height)
+      this._currentScene.draw(this._context, this.options.width, this.options.height)
     }
     requestAnimationFrame(() => this.update())
   }

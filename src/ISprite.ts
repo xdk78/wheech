@@ -2,6 +2,6 @@ import IShape from './IShape'
 
 export default interface ISprite {
   path?: any
-  render(width, height): void
+  render(context: CanvasRenderingContext2D, width: number, height: number): void
   setShape(shape: IShape)
 }

@@ -5,17 +5,15 @@ export default class RectangleShape implements IShape {
   private _width: number
   private _style?: any
   private _height: number
-  private _context: CanvasRenderingContext2D
 
-  constructor(width: number, height: number, context: CanvasRenderingContext2D, style?) {
+  constructor(width: number, height: number, style?) {
     this._width = width
     this._height = height
     this._style = style
-    this._context = context
   }
 
-  public draw(canvasWidth: number, canvasHeight: number, vector: Vector2d, rotation: number): void {
-    const ctx = this._context
+  public draw(context: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number, vector: Vector2d, rotation: number): void {
+    const ctx = context
     ctx.clearRect(0, 0, canvasWidth, canvasHeight)
     ctx.beginPath()
     // @ts-ignore
