@@ -1,10 +1,10 @@
 import IPhysics from './IPhysics'
-import { Engine, World } from 'matter-js'
+import { Engine, World, IEngineDefinition } from 'matter-js'
 
 export default class Physics implements IPhysics {
   engine: Engine
 
-  constructor(options: any) {
+  constructor(options: IEngineDefinition) {
     this.engine = Engine.create(options)
   }
 
