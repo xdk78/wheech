@@ -1,7 +1,8 @@
 import Matter, { Body, Vector, IChamferableBodyDefinition } from 'matter-js'
 import CircleShape from './CircleShape'
+import IMatterBody from './IMatterBody'
 
-export default class CircleBody extends CircleShape {
+export default class CircleBody extends CircleShape implements IMatterBody{
   private _options?: IChamferableBodyDefinition
   private _body: Body
 

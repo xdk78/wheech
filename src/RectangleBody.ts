@@ -1,7 +1,8 @@
 import RectangleShape from './RectangleShape'
 import Matter, { Body, Vector, IChamferableBodyDefinition } from 'matter-js'
+import IMatterBody from './IMatterBody'
 
-export default class RectangleBody extends RectangleShape {
+export default class RectangleBody extends RectangleShape implements IMatterBody {
   private _options?: IChamferableBodyDefinition
   private _body: Body
 
