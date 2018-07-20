@@ -6,6 +6,7 @@ export default class RectangleShape implements IShape {
   protected _style?: any
   protected _height: number
   protected _position: Vector
+  protected _angle: number
 
   constructor(position: Vector, width: number, height: number, style?) {
     this._position = position
@@ -18,7 +19,7 @@ export default class RectangleShape implements IShape {
     this._position = position
   }
 
-  public draw(context: CanvasRenderingContext2D, rotation: number): void {
+  public draw(context: CanvasRenderingContext2D): void {
     const ctx = context
     ctx.beginPath()
     ctx.rect(this._position.x, this._position.y, this._width, this._height)

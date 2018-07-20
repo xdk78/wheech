@@ -15,8 +15,9 @@ export default class RectangleBody extends RectangleShape {
     return this._body
   }
 
-  public draw(context: CanvasRenderingContext2D, rotation: number): void {
+  public draw(context: CanvasRenderingContext2D): void {
     this._position = this._body.position
-    super.draw(context, rotation)
+    this._angle = this._body.angle
+    super.draw(context)
   }
 }

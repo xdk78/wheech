@@ -9,6 +9,6 @@ export default class Sprite implements ISprite {
   }
 
   public render(context: CanvasRenderingContext2D): void {
-    this._shape.draw(context, 0)
+    this._shape.draw(context)
   }
 }
