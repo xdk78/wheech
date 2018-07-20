@@ -1,5 +1,5 @@
 import IPhysics from './IPhysics'
-import { Engine, World, IEngineDefinition } from 'matter-js'
+import { Body, Engine, World, IEngineDefinition } from 'matter-js'
 
 export default class Physics implements IPhysics {
   engine: Engine
@@ -12,7 +12,7 @@ export default class Physics implements IPhysics {
     Engine.update(this.engine, 1000 / 60)
   }
 
-  addBody(body: Matter.Body) {
+  addBody(body: Body) {
     World.add(this.engine.world, body)
   }
 }

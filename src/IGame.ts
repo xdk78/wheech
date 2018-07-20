@@ -1,6 +1,5 @@
 import Scene from './Scene'
 import Physics from './Physics'
-import Sprite from './Sprite'
 
 export default interface IGame {
   options: Options

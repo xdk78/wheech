@@ -8,5 +8,6 @@ import Scene from './Scene'
 import Vector2d from './Vector2d'
 import Game from './Game'
 import Matter from 'matter-js'
+import RectangleBody from './RectangleBody'
 
-export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, Scene, Vector2d, Game, Matter }
+export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, RectangleBody, Scene, Vector2d, Game, Matter }
