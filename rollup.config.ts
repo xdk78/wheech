@@ -32,6 +32,7 @@ export default {
           'Matter',
           'Body',
           'Engine',
+          'Events',
           'Render',
           'World',
           'Bodies',
