@@ -9,5 +9,6 @@ import Vector2d from './Vector2d'
 import Game from './Game'
 import Matter from 'matter-js'
 import RectangleBody from './RectangleBody'
+import CircleShape from './CircleShape'
 
-export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, RectangleBody, Scene, Vector2d, Game, Matter }
+export { Wheech, Sprite, Physics, KeyCodes, InputSubject, RectangleShape, RectangleBody, CircleShape, Scene, Vector2d, Game, Matter }
