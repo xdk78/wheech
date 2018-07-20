@@ -16,25 +16,26 @@
     const w = new wheech.Wheech()
 
     const game = w.createGame('game', { width: 800, height: 600 })
+    const physics = new wheech.Physics()
     const subjectus = new wheech.InputSubject(document)
 
     const rectBody = new wheech.RectangleBody({ x: 50, y: 50 }, 50, 50, { fillStyle: 'palevioletred' })
     const rect = new wheech.Sprite()
-    const ground = new wheech.Sprite()
-    const groundBody = new wheech.RectangleBody({ x: 50, y: 200 }, 55, 200, { fillStyle: 'red' }, { isStatic: true })
-    rectBody.setPosition({ x: 55, y: 55 })
     rect.setShape(rectBody)
+
+    const groundBody = new wheech.RectangleBody({ x: 10, y: 200 }, 500, 50, { fillStyle: 'red' }, { isStatic: true })
+    const ground = new wheech.Sprite()
     ground.setShape(groundBody)
-    let rect2x = 5
-    let rect2y = 5
-    const physics = new wheech.Physics()
+
     wheech.Matter.Events.on(physics.engine, 'collisionStart', (event) => {
       console.log(event)
     })
-    physics.addBody(rectBody.getBody())
-    physics.addBody(groundBody.getBody())
+
+    let rect2x = 5
+    let rect2y = 5
     const rectShape2 = new wheech.RectangleShape({ x: rect2x, y: rect2x }, 50, 50, { fillStyle: 'purple' })
     const rect2 = new wheech.Sprite()
+    
     subjectus.keydownSubject.subscribe((event) => {
       if (event == wheech.KeyCodes.ARROW_RIGHT) {
         console.log('ARROW_RIGHT')
@@ -54,8 +55,10 @@
       }
       rectShape2.setPosition({ x: rect2x, y: rect2y })
     })
-
     rect2.setShape(rectShape2)
+
+    physics.addBody(rectBody.getBody())
+    physics.addBody(groundBody.getBody())
 
     const scene = new wheech.Scene('blue', physics, [rect, rect2, ground])
     game.setCurrentScene(scene)
