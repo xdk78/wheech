@@ -20,19 +20,20 @@
     const subjectus = new wheech.InputSubject(document)
 
     const rectBody = new wheech.RectangleBody({ x: 50, y: 50 }, 50, 50, { fillStyle: 'palevioletred' })
+    rectBody.getBody().restitution = 1 
     const rect = new wheech.Sprite()
     rect.onCollisionStart.subscribe((event) => {
       console.log(event)
     })
     rect.setShape(rectBody)
 
-    const groundBody = new wheech.RectangleBody({ x: 10, y: 200 }, 500, 50, { fillStyle: 'red' }, { isStatic: true })
+    const groundBody = new wheech.RectangleBody({ x: 0, y: 200 }, 800, 60, { fillStyle: 'red' }, undefined, { isStatic: true })
     const ground = new wheech.Sprite()
     ground.setShape(groundBody)
 
     let rect2x = 5
     let rect2y = 5
-    const rectShape2 = new wheech.RectangleShape({ x: rect2x, y: rect2x }, 50, 50, { fillStyle: 'purple' })
+    const rectShape2 = new wheech.RectangleShape({ x: rect2x, y: rect2x }, 50, 50, { fillStyle: 'purple' }, undefined)
     const rect2 = new wheech.Sprite()
 
     subjectus.keydownSubject.subscribe((event) => {
