@@ -14,53 +14,40 @@
   <script>
     // WIP THIS IS MOCK CURRENTLY
     const w = new wheech.Wheech()
-
-    const game = w.createGame('game', { width: 800, height: 600 })
+    const width = 800
+    const height = 600
+    const game = w.createGame('game', { width: width, height: height })
     const physics = new wheech.Physics()
     const subjectus = new wheech.InputSubject(document)
 
-    const rectBody = new wheech.RectangleBody({ x: 50, y: 50 }, 50, 50, { fillStyle: 'palevioletred' })
-    rectBody.getBody().restitution = 1
-    const rect = new wheech.Sprite()
-    rect.onCollisionStart.subscribe((event) => {
+    const groundThicc = 10
+    const groundTopBody = new wheech.RectangleBody({ x: width/2, y: groundThicc/2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundDownBody = new wheech.RectangleBody({ x: width/2, y: height - groundThicc/2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundLeftBody = new wheech.RectangleBody({ x: groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundRightBody = new wheech.RectangleBody({ x: width - groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
+
+    //const rect = new wheech.Sprite()
+    /*rect.onCollisionStart.subscribe((event) => {
       console.log(event)
-    })
-    rect.setShape(rectBody)
+    })*/
+    //rect.setShape(rectBody)
 
-    const groundBody = new wheech.RectangleBody({ x: 0, y: 200 }, 800, 60, { fillStyle: 'red' }, { isStatic: true })
-    const ground = new wheech.Sprite()
-    ground.setShape(groundBody)
+    const groundTop = new wheech.Sprite()
+    const groundDown = new wheech.Sprite()
+    const groundLeft = new wheech.Sprite()
+    const groundRight = new wheech.Sprite()
 
-    let rect2x = 5
-    let rect2y = 5
-    const rectShape2 = new wheech.RectangleShape({ x: rect2x, y: rect2x }, 50, 50, { fillStyle: 'purple' })
-    const rect2 = new wheech.Sprite()
+    groundTop.setShape(groundTopBody)
+    groundDown.setShape(groundDownBody)
+    groundLeft.setShape(groundLeftBody)
+    groundRight.setShape(groundRightBody)
 
-    subjectus.keydownSubject.subscribe((event) => {
-      if (event == wheech.KeyCodes.ARROW_RIGHT) {
-        console.log('ARROW_RIGHT')
-        rect2x += 10
-      }
-      else if (event == wheech.KeyCodes.ARROW_LEFT) {
-        console.log('ARROW_LEFT')
-        rect2x -= 10
-      }
-      else if (event == wheech.KeyCodes.ARROW_UP) {
-        console.log('ARROW_UP')
-        rect2y -= 10
-      }
-      else if (event == wheech.KeyCodes.ARROW_DOWN) {
-        console.log('ARROW_DOWN')
-        rect2y += 10
-      }
-      rectShape2.setPosition({ x: rect2x, y: rect2y })
-    })
-    rect2.setShape(rectShape2)
+    physics.addBody(groundTopBody.getBody())
+    physics.addBody(groundDownBody.getBody())
+    physics.addBody(groundLeftBody.getBody())
+    physics.addBody(groundRightBody.getBody())
 
-    physics.addBody(rectBody.getBody())
-    physics.addBody(groundBody.getBody())
-
-    const scene = new wheech.Scene('blue', physics, [rect, rect2, ground])
+    const scene = new wheech.Scene('blue', physics, [groundTop, groundDown, groundLeft, groundRight])
     game.setCurrentScene(scene)
     game.run()
 
