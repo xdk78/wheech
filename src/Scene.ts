@@ -15,7 +15,7 @@ export default class Scene implements IScene {
 
   public draw(context: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number): void {
     context.clearRect(0, 0, canvasWidth, canvasHeight)
-    this.sprites.forEach(element => {
+    this.sprites.filter(sprite => !sprite.isDestroyed).forEach(element => {
       element.render(context)
     })
 

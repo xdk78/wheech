@@ -37,6 +37,9 @@
         const x = (((width)) / 5) * iw
         const block = new wheech.RectangleBody({ x: x - 80, y: (height / 2.5 / 4) * ih }, blockw, blockh, { fillStyle: 'blue' }, { isStatic: true })
         const sprite = new wheech.Sprite()
+        sprite.onCollisionEnd.subscribe((event) => {
+          sprite.destroy()
+        })
         sprite.setShape(block)
         physics.addBody(block.getBody())
         sprites.push(sprite)
@@ -50,13 +53,14 @@
     //rect.setShape(rectBody)
 
     const circle = new wheech.CircleBody({ x: width / 2, y: 500 }, { radius: 10 }, null, { fillStyle: 'red' })
+
     circle.getBody().restitution = 1.5
     const circleSprite = new wheech.Sprite()
     circleSprite.setShape(circle)
     physics.addBody(circle.getBody())
     sprites.push(circleSprite)
 
-    const paddle = new wheech.RectangleBody({ x: 400, y: 525 }, 200, 20, { fillStyle: 'red' }, {isStatic: true})
+    const paddle = new wheech.RectangleBody({ x: 400, y: 525 }, 200, 20, { fillStyle: 'red' }, { isStatic: true })
     const paddleSprite = new wheech.Sprite()
     paddleSprite.setShape(paddle)
     physics.addBody(paddle.getBody())
