@@ -12,6 +12,11 @@ export default class CircleBody extends CircleShape implements IMatterBody{
     this._body = Matter.Bodies.circle(this._position.x, this._position.y, this._radius, this._options)
   }
 
+  public setPosition(position: Vector): void {
+    this._body.position = position
+    super.setPosition(this._body.position)
+  }
+  
   public getBody(): Body {
     return this._body
   }

@@ -12,6 +12,11 @@ export default class RectangleBody extends RectangleShape implements IMatterBody
     this._body = Matter.Bodies.rectangle(this._position.x, this._position.y, this._width, this._height, this._options)
   }
 
+  public setPosition(position: Vector): void {
+    this._body.position = position
+    super.setPosition(this._body.position)
+  }
+
   public getBody(): Body {
     return this._body
   }
