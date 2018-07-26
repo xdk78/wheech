@@ -26,16 +26,16 @@
     const subjectus = new wheech.InputSubject(document)
 
     const groundThicc = 10
-    const groundTopBody = new wheech.RectangleBody({ x: width/2, y: groundThicc/2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
-    const groundDownBody = new wheech.RectangleBody({ x: width/2, y: height - groundThicc/2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
-    const groundLeftBody = new wheech.RectangleBody({ x: groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
-    const groundRightBody = new wheech.RectangleBody({ x: width - groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundTopBody = new wheech.RectangleBody({ x: width / 2, y: groundThicc / 2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundDownBody = new wheech.RectangleBody({ x: width / 2, y: height - groundThicc / 2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundLeftBody = new wheech.RectangleBody({ x: groundThicc / 2, y: height / 2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
+    const groundRightBody = new wheech.RectangleBody({ x: width - groundThicc / 2, y: height / 2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
 
     const sprites = []
     for (let ih = 1; ih < 5; ih++) {
       for (let iw = 1; iw < 6; iw++) {
         const x = (((width)) / 5) * iw
-        const block = new wheech.RectangleBody({ x: x - 80, y: (height/2.5/4)*ih }, blockw, blockh, { fillStyle: 'blue' }, { isStatic: true })
+        const block = new wheech.RectangleBody({ x: x - 80, y: (height / 2.5 / 4) * ih }, blockw, blockh, { fillStyle: 'blue' }, { isStatic: true })
         const sprite = new wheech.Sprite()
         sprite.setShape(block)
         physics.addBody(block.getBody())
@@ -49,13 +49,18 @@
     })*/
     //rect.setShape(rectBody)
 
-    const circle = new wheech.CircleBody({x: width/2, y: 500}, {radius: 10}, null, { fillStyle: 'red' })
-    circle.getBody().restitution = 2
+    const circle = new wheech.CircleBody({ x: width / 2, y: 500 }, { radius: 10 }, null, { fillStyle: 'red' })
+    circle.getBody().restitution = 1.5
     const circleSprite = new wheech.Sprite()
     circleSprite.setShape(circle)
     physics.addBody(circle.getBody())
     sprites.push(circleSprite)
 
+    const paddle = new wheech.RectangleBody({ x: 400, y: 525 }, 200, 20, { fillStyle: 'red' }, {isStatic: true})
+    const paddleSprite = new wheech.Sprite()
+    paddleSprite.setShape(paddle)
+    physics.addBody(paddle.getBody())
+    sprites.push(paddleSprite)
 
     const groundTop = new wheech.Sprite()
     const groundDown = new wheech.Sprite()
