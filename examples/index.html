@@ -49,6 +49,14 @@
     })*/
     //rect.setShape(rectBody)
 
+    const circle = new wheech.CircleBody({x: width/2, y: 500}, {radius: 10}, null, { fillStyle: 'red' })
+    circle.getBody().restitution = 2
+    const circleSprite = new wheech.Sprite()
+    circleSprite.setShape(circle)
+    physics.addBody(circle.getBody())
+    sprites.push(circleSprite)
+
+
     const groundTop = new wheech.Sprite()
     const groundDown = new wheech.Sprite()
     const groundLeft = new wheech.Sprite()
