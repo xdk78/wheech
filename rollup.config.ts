@@ -37,6 +37,7 @@ export default {
           'World',
           'Bodies',
           'use',
+          'Vector',
           'Bounds',
           'Constraint'
         ]

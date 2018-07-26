@@ -17,7 +17,7 @@ export default class RectangleBody extends RectangleShape implements IMatterBody
   }
 
   public draw(context: CanvasRenderingContext2D): void {
-    this._position = this._body.position
+    this._position = Vector.create(this._body.vertices[0].x, this._body.vertices[0].y)
     this._angle = this._body.angle
     super.draw(context)
   }
