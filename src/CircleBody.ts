@@ -2,14 +2,27 @@ import Matter, { Body, Vector, IChamferableBodyDefinition } from 'matter-js'
 import CircleShape from './CircleShape'
 import IMatterBody from './IMatterBody'
 
-export default class CircleBody extends CircleShape implements IMatterBody{
+export default class CircleBody extends CircleShape implements IMatterBody {
   private _options?: IChamferableBodyDefinition
   private _body: Body
 
-  constructor(position: Vector, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean, style?, options?: IChamferableBodyDefinition) {
+  constructor(
+    position: Vector,
+    radius: number,
+    startAngle: number,
+    endAngle: number,
+    anticlockwise?: boolean,
+    style?,
+    options?: IChamferableBodyDefinition
+  ) {
     super(position, radius, startAngle, endAngle, anticlockwise, style)
     this._options = options
     this._body = Matter.Bodies.circle(this._position.x, this._position.y, this._radius, this._options)
+  }
+
+  public setPosition(position: Vector): void {
+    this._body.position = position
+    super.setPosition(this._body.position)
   }
 
   public getBody(): Body {
