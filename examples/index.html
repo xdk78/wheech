@@ -16,6 +16,11 @@
     const w = new wheech.Wheech()
     const width = 800
     const height = 600
+    const blocksperw = 5
+    const blockspewh = 4
+    const blockw = ((width) / 5) - 60
+    const blockh = 35
+
     const game = w.createGame('game', { width: width, height: height })
     const physics = new wheech.Physics()
     const subjectus = new wheech.InputSubject(document)
@@ -25,6 +30,18 @@
     const groundDownBody = new wheech.RectangleBody({ x: width/2, y: height - groundThicc/2 }, width, groundThicc, { fillStyle: 'palevioletred' }, { isStatic: true })
     const groundLeftBody = new wheech.RectangleBody({ x: groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
     const groundRightBody = new wheech.RectangleBody({ x: width - groundThicc/2, y: height/2 }, groundThicc, height, { fillStyle: 'palevioletred' }, { isStatic: true })
+
+    const sprites = []
+    for (let ih = 1; ih < 5; ih++) {
+      for (let iw = 1; iw < 6; iw++) {
+        const x = (((width)) / 5) * iw
+        const block = new wheech.RectangleBody({ x: x - 80, y: (height/2.5/4)*ih }, blockw, blockh, { fillStyle: 'blue' }, { isStatic: true })
+        const sprite = new wheech.Sprite()
+        sprite.setShape(block)
+        physics.addBody(block.getBody())
+        sprites.push(sprite)
+      }
+    }
 
     //const rect = new wheech.Sprite()
     /*rect.onCollisionStart.subscribe((event) => {
@@ -47,7 +64,11 @@
     physics.addBody(groundLeftBody.getBody())
     physics.addBody(groundRightBody.getBody())
 
-    const scene = new wheech.Scene('blue', physics, [groundTop, groundDown, groundLeft, groundRight])
+    sprites.push(groundDown)
+    sprites.push(groundTop)
+    sprites.push(groundLeft)
+    sprites.push(groundRight)
+    const scene = new wheech.Scene('blue', physics, sprites)
     game.setCurrentScene(scene)
     game.run()
 
