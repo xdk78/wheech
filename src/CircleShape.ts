@@ -30,9 +30,9 @@ export default class CircleShape implements IShape {
     ctx.arc(
       this._position.x,
       this._position.y,
-      0 | this._arc.radius,
-      0 | this._arc.startAngle,
-      (2 * Math.PI) | this._arc.endAngle,
+      0 || this._arc.radius,
+      0 || this._arc.startAngle,
+      (2 * Math.PI) || this._arc.endAngle,
       this._arc.anticlockwise
     )
     ctx.rotate((this._degrees * Math.PI) / 180)
