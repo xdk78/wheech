@@ -31,7 +31,7 @@ export default class CircleShape implements IShape {
       this._position.x,
       this._position.y,
       this._arc.radius || 0,
-      this._arc.startAngle|| 0,
+      this._arc.startAngle || 0,
       this._arc.endAngle || 2 * Math.PI,
       this._arc.anticlockwise
     )
